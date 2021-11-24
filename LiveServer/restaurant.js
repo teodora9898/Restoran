@@ -100,6 +100,9 @@ addWaiterFetch(){
     if(waiter.jmbg.length != 13){
         alert("JMBG must have 13 numbers!");
     }
+    else if(isNaN(waiter.jmbg)){
+        alert("JMBG can only have numbers");
+    }
     else if(waiter.experience<0){
         alert("Experience can not be negative number!");
     }
@@ -192,7 +195,8 @@ changeTableStatusFetch(parent){
                 if(table.waiterId==null){                   
                    alert("This table does not have waiter!");
                 }
-                else if(table.status.toString()==(valueStatusStr-1) ){
+                else if((table.status.toString()==(valueStatusStr-1)) ||
+                table.status.toString() =="4" && valueStatus=="1" ){
                     
                     table.status = valueStatus;
                     table.updateTable(valueTable,valueStatus);
@@ -390,7 +394,7 @@ changeTableStatusForm(host){
 
     let optionsForStatus;
 
-    //da li ovo treba ovako?????
+   
    
     const status = ["EmptyWithNoWaiter","EmptyWithWaiter","GuestsSeated","GuestsOrdered","GuestsServerd"];
     for(let i=0; i<status.length; i++){

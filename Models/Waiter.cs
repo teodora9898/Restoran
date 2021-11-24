@@ -19,6 +19,7 @@ public class Waiter
         public string LastName { get; set; }
 
         [Column("JMBG")]
+        [RegularExpression(@"[0-9]+")]
         [StringLengthAttribute(maximumLength:13, MinimumLength =13,ErrorMessage = "Please insert 13 numbers.")]
         public string JMBG { get; set; } 
 
